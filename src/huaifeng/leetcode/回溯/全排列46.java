@@ -24,19 +24,20 @@ class 全排列46 {
     }
 
     public void dfs (int[] nums, List<Integer> path) {
-
         if (path.size() == nums.length)  {
             res.add(new ArrayList<>(path));
             return;
         }
+
         for (int i = 0; i < nums.length; i++) {
             if (!visited[i]) {
                 visited[i] = true;
+                path.add(nums[i]);
                 dfs(nums, path);
                 visited[i] = false;
+                path.remove(path.size() - 1);
             }
         }
-
     }
 
 }
